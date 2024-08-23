@@ -19,17 +19,12 @@
                 Sempre a procura do conhecimento e novas experiências.
             Faça o Download do meu currículo abaixo para mais informações técnicas.</h1>
             <div class="cv">
-                <p-splitButton 
-                label="Save" 
-                severity="contrast" 
-                [model]="items">
-                    <ng-template pTemplate="content">
-                        <span class="flex align-items-center font-bold">
-                            <i class="pi pi-download"></i>
-                            <span>Baixar CV</span>
-                        </span>
-                    </ng-template>
-            </p-splitButton>
+                
+            <button class="fill-button"(click)="fillbutton()" >
+                        <div class="fill-effect"></div>
+                        <span class="icon"><i class="pi pi-graduation-cap"></i></span> 
+                        Download
+                    </button>
             </div>
         </aside>
     </main>      

@@ -13,18 +13,19 @@ import { PrimeIcons, MenuItem } from 'primeng/api';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-   items: Array<any> = [];
-
-
+  
+   
    ngOnInit(){
-    this.items = [
-      {
-        label: 'new',
-        icon: "",
-      }
-    ]
+    
   
 }
 
-}
+fillbutton(){
+  console.log("passou");
+  const button = document.querySelector('.fill-button') as HTMLElement;
+  button?.addEventListener('click', ()=>{
+  button.classList.toggle('clicked');
 
+ });
+}
+}
