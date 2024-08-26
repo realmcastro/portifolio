@@ -106,16 +106,13 @@ $color: rgba(0,124,205,1);
         height: 100%;
         display: grid;
         place-items: center;
-        align-items: start;
     }
     
      .fill-button {
         max-width: 80%;
         width: 30%;
         height: 30%;
-        gap: 10%;
-        white-space: nowrap;
-        display: grid;
+        display: flex;
         justify-content: center;
         align-items: center;
         border: 2px solid #007BFF;
@@ -129,11 +126,12 @@ $color: rgba(0,124,205,1);
         border-radius: 8px;
         overflow: hidden;
         transition: background-position 0.6s ease, color 0.3s ease;
-    }
-    .fill-button:nth-child(3){
-        justify-self: start;
         
+        span{
+            padding-right: 20%;
+        }
     }
+   
     .fill-button.clicked {
         background-position: 100% 100%;
         color: #fff;
@@ -143,81 +141,126 @@ $color: rgba(0,124,205,1);
 
 
 @media screen and (min-width: 200px) and (max-width:600px){
-.container{
-    max-width: 100vw;
-    background-color: #081b19;
-    display: grid;
-    height: 100vh;
-    grid-template-rows: 1fr 9fr;
-    row-gap: 2%;
-
-    .nav-bar{
+    .container {
+        max-width: 100vw;
+        background-color: #081b19;
+        display: grid;
+        height: 100vh;
+        grid-template-rows: 1fr 9fr;
+        overflow: hidden; /* Garante que o container principal não cause overflow */
+    
+        .nav-bar {
             text-align: center;
             min-height: 10vh;
             color: white;
             display: grid;
-            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 1%;
             padding-right: 2%;
             align-items: center;
             width: 100%;
             font-size: 90%;
-            header{
+    
+            header {
                 display: none;
             }
-    }
-    main{
-        display: grid;
-        grid-template-rows: 1fr 2fr;
-        div{
-            max-height: 100%;
-            section{
-                display: grid;
-                place-items: center;
-                img{
-                    width: 60%;
-                    max-height: 100%;
-                    object-fit: contain;
+        }
+    
+        main {
+            max-height: 90vh;
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            overflow: hidden; /* Garante que o main não cause overflow */
+    
+            div {
+                max-height: 100%;
+                overflow: hidden; /* Remove overflow no div */
+    
+                section {
+                    display: grid;
+                    place-items: center;
+                    img {
+                        display: block;
+                        max-width: 50%;
+                        
+                        max-height: 100%;
+                        object-fit: contain;
+                    }
+                }
+    
+                article {
+                    display: none;
                 }
             }
-            article{
-                display: none;
-            }
-        }
-        aside{
-            height: 100%;
-            width: 100%;
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            grid-template-rows: 1fr 1fr 2fr;
-            
-            .title{
-                max-height: 30%;
-                font-size: calc(1.5rem);
-                font-family: "JetBrains Mono";
-                text-align: center;
-                color: white;
-                white-space: nowrap;
-                overflow: hidden;
-                text-align: center;
-                border-right: 2px solid;
-                width: 0ch;
-                animation: typing 4s steps(27, end) forwards, blink-caret 0.75s 4s steps(20, end) forwards;
+    
+            aside {
+                max-height: 100%; /* Garante que o aside não exceda seu contêiner */
+                width: 100%;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                grid-template-rows: 1fr 1fr 2fr;
+                overflow: hidden; /* Previne overflow do aside */
+                box-sizing: border-box; /* Inclui padding e border na largura e altura totais */
                 
+                .title {
+                    padding: 0% 5% 0 5%;
+                    max-height: 30%;
+                    font-size: calc(1.3rem);
+                    font-family: "JetBrains Mono";
+                    text-align: center;
+                    color: white;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    border-right: 2px solid;
+                    width: 0ch;
+                    animation: typing 4s steps(27, end) forwards, blink-caret 0.75s 4s steps(20, end) forwards;
+                }
+    
+                .sub-title {
+                    padding: 0 10%;
+                    max-width: 100%;
+                    font-size: 100%;
+                    font-family: "JetBrains Mono";
+                    text-align: center;
+                    color: white;
+                }
+    
+                .cv {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+    
+                .fill-button {
+                    max-width: 80%;
+                    width: 40%;
+                    height: 30%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 2px solid #007BFF;
+                    background: linear-gradient(to top, #007BFF 50%, transparent 50%);
+                    background-size: 100% 200%;
+                    background-position: 100% 0%;
+                    color: #007BFF;
+                    font-size: 100%;
+                    font-weight: bold;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    transition: background-position 0.6s ease, color 0.3s ease;
+                    
+                    span {
+                        padding-right: 20%;
+                    }
+                }
             }
-            .sub-title{
-                max-width: 80%;
-                font-size: 100%;
-                font-family: "JetBrains Mono";
-                text-align: center;
-                color: white;
-            }
-        
-
         }
     }
-}
+    
 }
 
 @keyframes moveimagem {
